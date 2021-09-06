@@ -1,0 +1,97 @@
+* GUI
+
+This GUI would be used when all the messages of the author are available
+(with the all-messages options for example) and messages from the identifier are too.
+
+Since the identifier approach is not perfect, a GUI is necesssary to label which
+message is a duplicate, needs to be removed/added.
+
+The left window would show all the messages from the all-messages, and the right one
+all the messages by the automatic approach.
+
+Assuming the identifier approach did a fairly good job there should be only a few chapters to
+remove/add. And the html is going to be produced based on the items that are in the identifier window
+which is the right one.
+
+The first paragraphs are shown and you would click/press a key to remove,add, or swap item
+
+Scenario 1 : One chapter is missing in the identifier approach, go to left window -> select missing item
+and click/press "move the item to the right button", then put the item in the right position by repeatingly pressing
+the "down/up item button" for the right qlistwidget
+
+Scenario 2: There are some duplicates in the identifier approach -> select the duplicates and click/press
+the "move the item to the left button" to move them to the left QListWidget
+
+Scenario 3: Some chapters in the identifier windows are not in the correct order -> move the items with the
+move up/down buttons
+
+The layout would looks like something like this:
+
+Top
+- Toolbar with a help menu->help dialog and a file->quit
+- Toolbar->button to save the state (needed if gigantic risitas)
+- Toolbar->Button to undo last modification
+- Toolbar->button to go back to the beginning state
+
+Mid
+- 2 QListWidget side-by-side
+- Between them, 2 QPushButton allowing to swap items from one QlistWidget to the other
+- On the side, 2 QPushbutton to move up/down the items within the QListWidget
+- Maybe One QPushButton to display images contained in the item at their full scale?
+- Another button to add item that doesn't come from one of the approaches?
+
+Bottom
+- Below the list widget, one file picker to select the final html output location
+- Below QPushButton to produce the html from the items in the right QListWidget
+
+Performance
+
+I tried to keep the entire data in the model and just cut
+the long text in the delegate, but this is depressingly slow
+(is a thread useful in this scenario?).
+
+Forced to do some hacky stuff to get a good speed
+
+
+Useful links:
+
+https://doc.qt.io/qtforpython/examples/example_sql__books.html
+https://doc.qt.io/qtforpython/examples/example_widgets_itemviews_stardelegate.html
+https://apocalyptech.com/linux/qt/qtableview/
+https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt
+https://stackoverflow.com/questions/47890913/multiple-fonts-in-one-line-of-a-qlistwidget/47892504#47892504
+https://stackoverflow.com/questions/23802170/word-wrap-with-html-qtableview-and-delegates?rq=1
+https://stackoverflow.com/questions/1736015/debugging-a-pyqt4-app
+https://gist.github.com/eyllanesc/c524a51e734de0377b2746715b1f721c
+https://stackoverflow.com/questions/35397943/how-to-make-a-fast-qtableview-with-html-formatted-and-clickable-cells?noredirect=1&lq=1
+https://www.codesd.com/item/how-to-make-qtableview-fast-with-html-formatted-and-clickable-cells.html
+https://qmlbook.github.io/ch07-modelview/modelview.html
+https://stackoverflow.com/questions/35397943/how-to-make-a-fast-qtableview-with-html-formatted-and-clickable-cells
+https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt/66412883#66412883
+https://stackoverflow.com/questions/66412941/qt-elide-rich-text
+https://doc.qt.io/qtforpython-6/overviews/qtwidgets-itemviews-spinboxdelegate-example.html
+https://doc.qt.io/qt-5/qpainter.html
+https://doc.qt.io/qt-5/qstyleditemdelegate.html
+https://doc.qt.io/qt-5/qstyleoptionviewitem.html
+https://doc.qt.io/qt-5/qstyleditemdelegate.html#paint
+https://doc.qt.io/qt-5/qstyle.html#StateFlag-enum
+https://doc.qt.io/qt-5/qstyleoptionviewitem.html#text-var
+https://doc.qt.io/qt-5/qmodelindex.html
+https://doc.qt.io/qt-5/qstyle.html#drawControl
+https://doc.qt.io/qt-5/qtextdocument.html#textWidth-prop
+https://stackoverflow.com/questions/66412941/qt-elide-rich-text?noredirect=1&lq=1
+https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt
+https://stackoverflow.com/questions/64198197/how-to-prevent-too-aggressive-text-elide-in-qtableview
+https://stackoverflow.com/questions/66412941/qt-elide-rich-text?rq=1
+https://code.woboq.org/qt5/qtbase/src/gui/text/qfontmetrics.cpp.html#_ZNK12QFontMetrics10elidedTextERK7QStringN2Qt13TextElideModeEii
+https://www.walletfox.com/course/qtreorderablelist.php
+https://stackoverflow.com/questions/10957392/moving-items-up-and-down-in-a-qlistwidget
+https://forum.qt.io/topic/124247/listview-really-slow-scrolling
+https://www.qt.io/blog/qt-for-python-6.1
+https://doc.qt.io/qtforpython/PySide6/QtCore/QCoreApplication.html#PySide6.QtCore.PySide6.QtCore.QCoreApplication.translate
+https://doc-snapshots.qt.io/qtforpython-dev/tutorials/basictutorial/translations.html
+https://doc.qt.io/qtforpython/PySide6/QtCore/QTranslator.html
+https://www.pythonguis.com/tutorials/qresource-system/
+https://doc.qt.io/qtforpython/tutorials/basictutorial/qrcfiles.html
+https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QSpinBox.html
+https://forum.qt.io/topic/124247/listview-really-slow-scrolling

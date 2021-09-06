@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="Risicompare">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1114</width>
+    <height>801</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Risicompare</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="leftButton">
+        <property name="text">
+         <string>Move left</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+Left</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rightButton">
+        <property name="text">
+         <string>Move right</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+Right</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0" colspan="4">
+     <widget class="QPushButton" name="htmlButton">
+      <property name="text">
+       <string>Produce HTML</string>
+      </property>
+      <property name="shortcut">
+       <string>Ctrl+D</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QListWidget" name="identifierList"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QListWidget" name="bulkList"/>
+    </item>
+    <item row="0" column="3">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="upButton">
+        <property name="text">
+         <string>Move up</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+Up</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="downButton">
+        <property name="text">
+         <string>Move down</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+Down</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="4">
+     <widget class="QPushButton" name="outputButton">
+      <property name="text">
+       <string>Write HTML file to...</string>
+      </property>
+      <property name="shortcut">
+       <string>Ctrl+O</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1114</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSave">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="bulkFileButton"/>
+    <addaction name="identifierFileButton"/>
+    <addaction name="showImagesButton"/>
+    <addaction name="numParagraphButton"/>
+    <addaction name="quitButton"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="helpButton"/>
+   </widget>
+   <addaction name="menuSave"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="bulkFileButton">
+   <property name="text">
+    <string>Bulk file</string>
+   </property>
+  </action>
+  <action name="identifierFileButton">
+   <property name="text">
+    <string>Identifier file</string>
+   </property>
+  </action>
+  <action name="beginningButton">
+   <property name="text">
+    <string>Go back to Beginning</string>
+   </property>
+  </action>
+  <action name="quitButton">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="helpButton">
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="showImagesButton">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show images</string>
+   </property>
+  </action>
+  <action name="numParagraphButton">
+   <property name="text">
+    <string>Number of  paragraph to show</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>identifierList</tabstop>
+  <tabstop>bulkList</tabstop>
+  <tabstop>upButton</tabstop>
+  <tabstop>downButton</tabstop>
+  <tabstop>leftButton</tabstop>
+  <tabstop>rightButton</tabstop>
+  <tabstop>outputButton</tabstop>
+  <tabstop>htmlButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

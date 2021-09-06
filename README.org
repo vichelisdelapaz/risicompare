@@ -7,7 +7,7 @@ Ce projet dépend de https://github.com/vichelisdelapaz/risiparse
 
 * Utilisation
 
-Dans un premier télécharger le/les risitas avec l'approche automatique
+Dans un premier temps télécharger le/les risitas avec l'approche automatique
 
 #+BEGIN_EXAMPLE
 python3 risiparse.py --download-images --no-pdf

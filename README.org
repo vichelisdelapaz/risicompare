@@ -10,19 +10,19 @@ Ce projet dépend de https://github.com/vichelisdelapaz/risiparse
 Dans un premier temps télécharger le/les risitas avec l'approche automatique
 
 #+BEGIN_EXAMPLE
-python3 risiparse.py --download-images --no-pdf
+risiparse --download-images --no-pdf
 #+END_EXAMPLE
 
 Puis télécharger tous les messages de l'auteur
 
 #+BEGIN_EXAMPLE
-python3 risiparse.py --all-messages --download-images --no-pdf
+risiparse --all-messages --download-images --no-pdf
 #+END_EXAMPLE
 
 Une fois que c'est fait on peut lancer risicompare
 
 #+BEGIN_EXAMPLE
-python3 risicompare.py
+risicompare
 #+END_EXAMPLE
 
 Une fois dans le GUI, il faudra cliquer sur File en haut à gauche, puis sur bulk File et Identifier File.
@@ -75,13 +75,13 @@ ou d'une autre destination que vous avez choisi.
 Ensuite il faudra juste lancer
 
 #+BEGIN_EXAMPLE
-python3 risiparse.py --no-download
+risiparse --no-download
 #+END_EXAMPLE
 
 Ou 
 
 #+BEGIN_EXAMPLE
-python3 risiparse.py --no-download -o <destination contenant risitas-html>
+risiparse --no-download -o <destination contenant risitas-html>
 #+END_EXAMPLE
 
 Pour avoir le pdf sans messages hors-sujet et/ou avec les messages manqués par l'approche automatique.

@@ -4,6 +4,8 @@ Ce projet dépend de <https://github.com/vichelisdelapaz/risiparse>
 
 ![](./proof.png)
 
+![](./test.webm)
+
 # Utilisation
 
 Dans un premier temps télécharger le/les risitas avec l\'approche

@@ -1,3 +1,3 @@
 {
-    "files": ["risicompare.py","html_delegate.py","form.py","form.ui"]
+    "files": ["risicompare/risicompare.py","risicompare/html_delegate.py","risicompare/form.py","form.ui"]
 }

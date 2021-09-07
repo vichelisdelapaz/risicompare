@@ -5,8 +5,8 @@ import pathlib
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog
 from PySide6.QtCore import QFile, Slot, QDir
 from PySide6.QtGui import QPalette, QColor, QColorConstants
-from form import Ui_MainWindow
-from html_delegate import HTMLDelegate
+from risicompare.form import Ui_MainWindow
+from risicompare.html_delegate import HTMLDelegate
 from bs4 import BeautifulSoup
 import logging
 
@@ -235,7 +235,8 @@ move up/down buttons''')
             self.paragraphs = i
 
 
-if __name__ == "__main__":
+
+def main():
     app = QApplication([])
     app.setStyle('Fusion')
     palette = QPalette()

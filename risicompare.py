@@ -8,6 +8,12 @@ from PySide6.QtGui import QPalette, QColor, QColorConstants
 from form import Ui_MainWindow
 from html_delegate import HTMLDelegate
 from bs4 import BeautifulSoup
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s:%(levelname)s: %(message)s'
+)
 
 
 class Risicompare(QMainWindow, Ui_MainWindow):
@@ -157,8 +163,12 @@ class Risicompare(QMainWindow, Ui_MainWindow):
         # We match the items html with the one in the dictionnary
         # to have a full html text and in the items order
         for element in range(item_count):
+            item_to_compare = self.identifierList.item(element).text()
             for k, v in self.part_order.items():
-                if self.identifierList.item(element).text() in v[1]:
+                if item_to_compare == v[1] and item_to_compare not in html_risitas:
+                    logging.info(f"The key is {k}")
+                    logging.info(f"The value to compare to is '{v[1]}'")
+                    logging.info(f"The element being compared is '{item_to_compare}'")
                     html_risitas.append(v[0])
                     break
         if self.output_file == "":

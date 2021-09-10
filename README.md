@@ -4,8 +4,6 @@ Ce projet dépend de <https://github.com/vichelisdelapaz/risiparse>
 
 ![](./proof.png)
 
-![](./test.webm)
-
 # Utilisation
 
 Dans un premier temps télécharger le/les risitas avec l\'approche
@@ -42,13 +40,22 @@ automatique, le nouveau html sera créé à partir de cette fenêtre.
 
 -   Show images : Si l\'option est cochée les images seront affichées(si
     désactivée il y\'aura un placeholder pour image manquante)
-    désactivée par défault car il y\'a une perte notable de performance.
+    désactivée par défault car il y\'a une perte notable de performance, cette
+	perte est notamment dûe aux images trop grandes dont risiparse a enlevé la limite
+	(ce qui arrive quand risiparse "pense" que le script est un chapitre, mais c'est
+	peut-être juste une photo de voyage par example), et qui prend beaucoup de place.
+
+	Donc si c'est juste des stickers à taille normale devrait pas y'avoir ce souci là.
 
 -   Nombre de paragraphes : Le nombre de paragraphes à afficher par
     message, par défaut 3, afficher moins de paragraphes aide au niveau
     des performances.
 
 ## Opérations
+
+CTRL + V : Défiler les messages des fenêtres vers le bas en même temps
+
+ALT + V : Défiler les messages des fenêtres vers le haut en même temps
 
 Move left, CTRL + FLECHE GAUCHE : Bouge le message sélectionné dans la
 fenêtre Identifier dans la fenêtre Bulk, équivalent à le supprimer
@@ -62,14 +69,14 @@ bouge le message sélectionné vers le haut
 Move down, CTRL + FLECHE DU BAS : Uniquement dans la fenêtre Identifier,
 bouge le message sélectionné vers le bas
 
-Quit, CTRL + q : Quitter l\'application
+Quit, CTRL + Q : Quitter l\'application
 
-Help, CTRL + h : Afficher l\'aide
+Help, CTRL + H : Afficher l\'aide
 
-Write HTML to..., CTRL + o : Choisir la destination du fichier qui sera
+Write HTML to..., CTRL + O : Choisir la destination du fichier qui sera
 créé
 
-Produce HTML, CTRL + d : Ecrire le nouveau fichier vers la destination
+Produce HTML, CTRL + D : Ecrire le nouveau fichier vers la destination
 choisie
 
 ## Déplacements

@@ -4,7 +4,7 @@ import pathlib
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog
 from PySide6.QtCore import QFile, Slot, QDir
-from PySide6.QtGui import QPalette, QColor, QColorConstants
+from PySide6.QtGui import QPalette, QColor, QColorConstants, QShortcut, QKeySequence
 from risicompare.form import Ui_MainWindow
 from risicompare.html_delegate import HTMLDelegate
 from bs4 import BeautifulSoup
@@ -49,6 +49,34 @@ class Risicompare(QMainWindow, Ui_MainWindow):
         # See https://doc.qt.io/qt-6/qml-qtquick-listview.html#highlightMoveVelocity-prop
         self.identifierList.cacheBuffer = 10000
         self.bulkList.cacheBuffer = 10000
+
+        # Shortcuts to scroll the selections of messages in the left and right window
+        # at the same time.
+        self.selection_down = QShortcut(QKeySequence('Ctrl+V'), self)
+        self.selection_down.activated.connect(self.moveSelectionDown)
+
+        self.selection_up = QShortcut(QKeySequence('Alt+V'), self)
+        self.selection_up.activated.connect(self.moveSelectionUp)
+
+
+    @Slot()
+    def moveSelectionUp(self):
+        if not self.identifierList.count() or not self.bulkList.count():
+            return
+        currentRowBulk = self.bulkList.currentRow()
+        currentRowIdentifier = self.identifierList.currentRow()
+        self.identifierList.setCurrentRow(currentRowIdentifier - 1)
+        self.bulkList.setCurrentRow(currentRowBulk - 1)
+
+
+    @Slot()
+    def moveSelectionDown(self):
+        if not self.identifierList.count() or not self.bulkList.count():
+            return
+        currentRowBulk = self.bulkList.currentRow()
+        currentRowIdentifier = self.identifierList.currentRow()
+        self.identifierList.setCurrentRow(currentRowIdentifier + 1)
+        self.bulkList.setCurrentRow(currentRowBulk + 1)
 
 
     @Slot()

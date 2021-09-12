@@ -13,7 +13,8 @@ automatique
 risiparse --download-images --no-pdf
 ```
 
-Puis télécharger tous les messages de l\'auteur
+Puis télécharger tous les messages de l\'auteur (à noter que la commande ci-dessous n'est pas nécessaire
+pour risific car tous les posts là-bas sont de l'auteur, ou si l'approche automatique à déjà tous les chapitres)
 
 ``` example
 risiparse --all-messages --download-images --no-pdf
@@ -36,14 +37,21 @@ Identifier file correspond quant à lui à la fenêtre de droite, c\'est la
 fenêtre qui contient tous les messages rapportés par l\'approche
 automatique, le nouveau html sera créé à partir de cette fenêtre.
 
+Aussi dans le cas où l'approche automatique contient tous les chapitres, et qu'il faut
+juste en trier certains il n'est pas nécessaire de charger un fichier pour la fenêtre de gauche.
+Juste charger le fichier qui contient tout dans la fenêtre de droite. Et faire le tri là.
+
 ## Autres options
+
+Pour chaque options après les avoir règlées, il faut resélectionner les fichiers dans identifier/bulk file
+pour qu'elles prennent effet.
 
 -   Show images : Si l\'option est cochée les images seront affichées(si
     désactivée il y\'aura un placeholder pour image manquante)
-    désactivée par défault car il y\'a une perte notable de performance, cette
+    il y\'a une perte notable de performance quand les images sont affichés en gros plan, cette
 	perte est notamment dûe aux images trop grandes dont risiparse a enlevé la limite
 	(ce qui arrive quand risiparse "pense" que le script est un chapitre, mais c'est
-	peut-être juste une photo de voyage par example), et qui prend beaucoup de place.
+	peut-être juste une photo de voyage par exemple), et qui prend beaucoup de place.
 
 	Donc si c'est juste des stickers à taille normale devrait pas y'avoir ce souci là.
 

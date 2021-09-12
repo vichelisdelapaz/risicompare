@@ -1,7 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import pathlib
-import configparser
 import logging
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog
@@ -261,10 +260,7 @@ move up/down buttons''')
 
     @Slot()
     def version(self):
-        config = configparser.ConfigParser()
-        config_file_path = pathlib.Path(__file__).parent.parent / "setup.cfg"
-        config.read(config_file_path)
-        version = config['metadata']['version']
+        version = "1.1.0"
         msgBox = QMessageBox(icon=QMessageBox.Information)
         msgBox.setText(f"Version : {version}")
         msgBox.exec()

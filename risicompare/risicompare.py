@@ -1,14 +1,15 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import pathlib
+import configparser
+import logging
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog
 from PySide6.QtCore import QFile, Slot, QDir
 from PySide6.QtGui import QPalette, QColor, QColorConstants, QShortcut, QKeySequence
-from risicompare.form import Ui_MainWindow
+from risicompare.form import Ui_Risicompare
 from risicompare.html_delegate import HTMLDelegate
 from bs4 import BeautifulSoup
-import logging
 
 logging.basicConfig(
     level=logging.INFO,
@@ -16,7 +17,7 @@ logging.basicConfig(
 )
 
 
-class Risicompare(QMainWindow, Ui_MainWindow):
+class Risicompare(QMainWindow, Ui_Risicompare):
     def __init__(self):
         super(Risicompare, self).__init__()
         self.setupUi(self)
@@ -32,6 +33,7 @@ class Risicompare(QMainWindow, Ui_MainWindow):
         self.htmlButton.clicked.connect(self.produceHTML)
         self.quitButton.triggered.connect(self.close)
         self.helpButton.triggered.connect(self.help)
+        self.versionButton.triggered.connect(self.version)
         self.bulkFileButton.triggered.connect(lambda :self.filePickerOpen(True))
         self.identifierFileButton.triggered.connect(lambda: self.filePickerOpen(False))
         self.showImagesButton.triggered.connect(self.showImages)
@@ -41,7 +43,7 @@ class Risicompare(QMainWindow, Ui_MainWindow):
         self.output_file = ""
         self.bulk_file = ""
         self.identifier_file = ""
-        self.show_images = False
+        self.show_images = True
         self.part_order = dict()
         self.paragraphs = 3
 
@@ -248,7 +250,9 @@ and click/press "move the item to the right button", then put the item in the ri
 the "down/up item button" for the right qlistwidget
 
 Scenario 2: There are some duplicates in the identifier approach -> select the duplicates and click/press
-the "move the item to the left button" to move them to the left QListWidget
+the "move the item to the left button" to move them to the left QListWidget, note that if all required chapters
+are present in the identifier approach, you don't need to load/download the bulk file. Because
+remember the changes that matters are in the identifier window
 
 Scenario 3: Some chapters in the identifier windows are not in the correct order -> move the items with the
 move up/down buttons''')
@@ -256,9 +260,20 @@ move up/down buttons''')
 
 
     @Slot()
+    def version(self):
+        config = configparser.ConfigParser()
+        config_file_path = pathlib.Path(__file__).parent.parent / "setup.cfg"
+        config.read(config_file_path)
+        version = config['metadata']['version']
+        msgBox = QMessageBox(icon=QMessageBox.Information)
+        msgBox.setText(f"Version : {version}")
+        msgBox.exec()
+
+
+    @Slot()
     def setParagraphNumber(self):
         i, ok = QInputDialog().getInt(self, "Number of paragraphs window",
-                                 "Number of paragraphs to show:", 0, 0, 100, 1)
+                                 "Number of paragraphs to show:", self.paragraphs, 0, 100, 1)
         if ok:
             self.paragraphs = i
 

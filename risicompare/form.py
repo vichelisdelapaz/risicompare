@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'form.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.1.2
+## Created by: Qt User Interface Compiler version 6.1.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -13,7 +13,7 @@ from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 
 
-class Ui_MainWindow(object):
+class Ui_Risicompare(object):
     def setupUi(self, Risicompare):
         if not Risicompare.objectName():
             Risicompare.setObjectName(u"Risicompare")
@@ -31,8 +31,11 @@ class Ui_MainWindow(object):
         self.showImagesButton = QAction(Risicompare)
         self.showImagesButton.setObjectName(u"showImagesButton")
         self.showImagesButton.setCheckable(True)
+        self.showImagesButton.setChecked(True)
         self.numParagraphButton = QAction(Risicompare)
         self.numParagraphButton.setObjectName(u"numParagraphButton")
+        self.versionButton = QAction(Risicompare)
+        self.versionButton.setObjectName(u"versionButton")
         self.centralwidget = QWidget(Risicompare)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -115,6 +118,7 @@ class Ui_MainWindow(object):
         self.menuSave.addAction(self.numParagraphButton)
         self.menuSave.addAction(self.quitButton)
         self.menuHelp.addAction(self.helpButton)
+        self.menuHelp.addAction(self.versionButton)
 
         self.retranslateUi(Risicompare)
 
@@ -122,45 +126,46 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, Risicompare):
-        Risicompare.setWindowTitle(QCoreApplication.translate("MainWindow", u"Risicompare", None))
-        self.bulkFileButton.setText(QCoreApplication.translate("MainWindow", u"Bulk file", None))
-        self.identifierFileButton.setText(QCoreApplication.translate("MainWindow", u"Identifier file", None))
-        self.beginningButton.setText(QCoreApplication.translate("MainWindow", u"Go back to Beginning", None))
-        self.quitButton.setText(QCoreApplication.translate("MainWindow", u"Quit", None))
+        Risicompare.setWindowTitle(QCoreApplication.translate("Risicompare", u"Risicompare", None))
+        self.bulkFileButton.setText(QCoreApplication.translate("Risicompare", u"Bulk file", None))
+        self.identifierFileButton.setText(QCoreApplication.translate("Risicompare", u"Identifier file", None))
+        self.beginningButton.setText(QCoreApplication.translate("Risicompare", u"Go back to Beginning", None))
+        self.quitButton.setText(QCoreApplication.translate("Risicompare", u"Quit", None))
 #if QT_CONFIG(shortcut)
-        self.quitButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Q", None))
+        self.quitButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+Q", None))
 #endif // QT_CONFIG(shortcut)
-        self.helpButton.setText(QCoreApplication.translate("MainWindow", u"Help", None))
+        self.helpButton.setText(QCoreApplication.translate("Risicompare", u"Help", None))
 #if QT_CONFIG(shortcut)
-        self.helpButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+H", None))
+        self.helpButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+H", None))
 #endif // QT_CONFIG(shortcut)
-        self.showImagesButton.setText(QCoreApplication.translate("MainWindow", u"Show images", None))
-        self.numParagraphButton.setText(QCoreApplication.translate("MainWindow", u"Number of  paragraph to show", None))
-        self.leftButton.setText(QCoreApplication.translate("MainWindow", u"Move left", None))
+        self.showImagesButton.setText(QCoreApplication.translate("Risicompare", u"Show images", None))
+        self.numParagraphButton.setText(QCoreApplication.translate("Risicompare", u"Number of  paragraph to show", None))
+        self.versionButton.setText(QCoreApplication.translate("Risicompare", u"Version", None))
+        self.leftButton.setText(QCoreApplication.translate("Risicompare", u"Move left", None))
 #if QT_CONFIG(shortcut)
-        self.leftButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Left", None))
+        self.leftButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+Left", None))
 #endif // QT_CONFIG(shortcut)
-        self.rightButton.setText(QCoreApplication.translate("MainWindow", u"Move right", None))
+        self.rightButton.setText(QCoreApplication.translate("Risicompare", u"Move right", None))
 #if QT_CONFIG(shortcut)
-        self.rightButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Right", None))
+        self.rightButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+Right", None))
 #endif // QT_CONFIG(shortcut)
-        self.htmlButton.setText(QCoreApplication.translate("MainWindow", u"Produce HTML", None))
+        self.htmlButton.setText(QCoreApplication.translate("Risicompare", u"Produce HTML", None))
 #if QT_CONFIG(shortcut)
-        self.htmlButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+D", None))
+        self.htmlButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+D", None))
 #endif // QT_CONFIG(shortcut)
-        self.upButton.setText(QCoreApplication.translate("MainWindow", u"Move up", None))
+        self.upButton.setText(QCoreApplication.translate("Risicompare", u"Move up", None))
 #if QT_CONFIG(shortcut)
-        self.upButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Up", None))
+        self.upButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+Up", None))
 #endif // QT_CONFIG(shortcut)
-        self.downButton.setText(QCoreApplication.translate("MainWindow", u"Move down", None))
+        self.downButton.setText(QCoreApplication.translate("Risicompare", u"Move down", None))
 #if QT_CONFIG(shortcut)
-        self.downButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Down", None))
+        self.downButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+Down", None))
 #endif // QT_CONFIG(shortcut)
-        self.outputButton.setText(QCoreApplication.translate("MainWindow", u"Write HTML file to...", None))
+        self.outputButton.setText(QCoreApplication.translate("Risicompare", u"Write HTML file to...", None))
 #if QT_CONFIG(shortcut)
-        self.outputButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
+        self.outputButton.setShortcut(QCoreApplication.translate("Risicompare", u"Ctrl+O", None))
 #endif // QT_CONFIG(shortcut)
-        self.menuSave.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
-        self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"About", None))
+        self.menuSave.setTitle(QCoreApplication.translate("Risicompare", u"File", None))
+        self.menuHelp.setTitle(QCoreApplication.translate("Risicompare", u"About", None))
     # retranslateUi
 

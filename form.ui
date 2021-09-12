@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
+ <class>Risicompare</class>
  <widget class="QMainWindow" name="Risicompare">
   <property name="geometry">
    <rect>
@@ -115,6 +115,7 @@
      <string>About</string>
     </property>
     <addaction name="helpButton"/>
+    <addaction name="versionButton"/>
    </widget>
    <addaction name="menuSave"/>
    <addaction name="menuHelp"/>
@@ -155,6 +156,9 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Show images</string>
    </property>
@@ -162,6 +166,11 @@
   <action name="numParagraphButton">
    <property name="text">
     <string>Number of  paragraph to show</string>
+   </property>
+  </action>
+  <action name="versionButton">
+   <property name="text">
+    <string>Version</string>
    </property>
   </action>
  </widget>

@@ -45,6 +45,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.show_images = True
         self.part_order = dict()
         self.paragraphs = 3
+        self.counter = 0
 
         # ListView Cache delegate
         # See https://doc.qt.io/qt-6/qml-qtquick-listview.html#highlightMoveVelocity-prop
@@ -150,15 +151,22 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         html_list = []
         with open(file, "r") as f:
             for element in f:
-                html_list.append(element)
+                html_list.append(element.strip())
         html = "".join(html_list)
         soup = BeautifulSoup(html, features="lxml")
         div = soup.select("div")
         # We remove some paragraph here to not
         # slow down the Delegate.
+        additional_keys = []
         for count , d in enumerate(div):
             p = d.select("p")
-            self.part_order[count] = [div[count].decode()]
+            dict_counter = 0
+            #for k, v in self.part_order.items()
+            while dict_counter in self.part_order:
+                dict_counter += 1
+            additional_keys.append(dict_counter)
+            self.part_order[dict_counter] = [div[count].decode()]
+            #self.part_order[count] = [div[count].decode()]
             for p in p[self.paragraphs:]:
                 p.decompose()
         # The image rendering is also depressingly slow
@@ -171,8 +179,8 @@ class Risicompare(QMainWindow, Ui_Risicompare):
                         continue
         # We add the removed part into a dictionnary for
         # a lookup when writing to HTML.
-        for count, element in enumerate(div):
-            self.part_order[count].append(element.decode())
+        for key, element in zip(additional_keys, div):
+            self.part_order[key].append(element.decode())
         if bulk:
             if self.bulkList.count() != 0:
                 self.bulkList.clear()
@@ -192,6 +200,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         # We match the items html with the one in the dictionnary
         # to have a full html text and in the items order
         for element in range(item_count):
+            logging.info(f"Current {element}")
             item_to_compare = self.identifierList.item(element).text()
             for k, v in self.part_order.items():
                 if item_to_compare == v[1] and item_to_compare not in html_risitas:

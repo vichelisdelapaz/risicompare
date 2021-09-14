@@ -269,7 +269,7 @@ move up/down buttons''')
 
     @Slot()
     def version(self):
-        version = "1.1.0"
+        version = "1.1.1"
         msgBox = QMessageBox(icon=QMessageBox.Information)
         msgBox.setText(f"Version : {version}")
         msgBox.exec()

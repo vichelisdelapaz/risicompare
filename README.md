@@ -10,7 +10,7 @@ Dans un premier temps télécharger le/les risitas avec l\'approche
 automatique
 
 ``` example
-risiparse --download-images --no-pdf
+risiparse --download-images --no-pdf -l <links>
 ```
 
 Puis télécharger tous les messages de l\'auteur (à noter que la commande ci-dessous n'est pas nécessaire
@@ -40,6 +40,12 @@ automatique, le nouveau html sera créé à partir de cette fenêtre.
 Aussi dans le cas où l'approche automatique contient tous les chapitres, et qu'il faut
 juste en trier certains il n'est pas nécessaire de charger un fichier pour la fenêtre de gauche.
 Juste charger le fichier qui contient tout dans la fenêtre de droite. Et faire le tri là.
+
+Une fois que les modifications sont faites il faudra juste enregistrer le fichier html dans un
+répertoire contenant risitas-html, et si vous utilisez la base de données (oui par défaut)
+il faudrait remplacer l'html du risitas cible par celui qui vient d'être créé, comme ça lorsqu'il y'a
+des mises à jour pour le risitas, ça sera ajouté automatiquement dans le fichier que vous avez modifié
+et le tout dans le bon ordre/sans partie manquante.
 
 ## Autres options
 

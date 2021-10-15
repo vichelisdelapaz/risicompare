@@ -13,11 +13,11 @@ automatique
 risiparse --download-images --no-pdf -l <links>
 ```
 
-Puis télécharger tous les messages de l\'auteur (à noter que la commande ci-dessous n'est pas nécessaire
+Puis télécharger tous les posts de l\'auteur (à noter que la commande ci-dessous n'est pas nécessaire
 pour risific car tous les posts là-bas sont de l'auteur, ou si l'approche automatique à déjà tous les chapitres)
 
 ``` example
-risiparse --all-messages --download-images --no-pdf
+risiparse --all-posts --download-images --no-pdf
 ```
 
 Une fois que c\'est fait on peut lancer risicompare
@@ -30,11 +30,11 @@ Une fois dans le GUI, il faudra cliquer sur File en haut à gauche, puis
 sur bulk File et Identifier File.
 
 Bulk file correspond à la fenêtre de gauche, c\'est la fenêtre qui est
-censé contenir tous les messages de l\'auteur. Cette fenêtre est ignorée
+censé contenir tous les posts de l\'auteur. Cette fenêtre est ignorée
 pour la création du nouveau html.
 
 Identifier file correspond quant à lui à la fenêtre de droite, c\'est la
-fenêtre qui contient tous les messages rapportés par l\'approche
+fenêtre qui contient tous les posts rapportés par l\'approche
 automatique, le nouveau html sera créé à partir de cette fenêtre.
 
 Aussi dans le cas où l'approche automatique contient tous les chapitres, et qu'il faut
@@ -67,9 +67,9 @@ pour qu'elles prennent effet.
 
 ## Opérations
 
-CTRL + V : Défiler les messages des fenêtres vers le bas en même temps
+CTRL + V : Défiler les posts des fenêtres vers le bas en même temps
 
-ALT + V : Défiler les messages des fenêtres vers le haut en même temps
+ALT + V : Défiler les posts des fenêtres vers le haut en même temps
 
 Move left, CTRL + FLECHE GAUCHE : Bouge le message sélectionné dans la
 fenêtre Identifier dans la fenêtre Bulk, équivalent à le supprimer
@@ -120,5 +120,5 @@ Ou
 risiparse --no-download -o <destination contenant risitas-html>
 ```
 
-Pour avoir le pdf sans messages hors-sujet et/ou avec les messages
+Pour avoir le pdf sans posts hors-sujet et/ou avec les posts
 manqués par l\'approche automatique.

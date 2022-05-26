@@ -1,5 +1,5 @@
-from PySide6 import QtCore, QtGui, QtWidgets
-from PySide6.QtGui import QTextOption, QFont, QTextCursor, QTextDocument
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QTextOption, QFont, QTextCursor, QTextDocument
 
 class HTMLDelegate(QtWidgets.QStyledItemDelegate):
     def paint(self, painter, option, index):

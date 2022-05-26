@@ -8,9 +8,9 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import *  # type: ignore
-from PySide6.QtGui import *  # type: ignore
-from PySide6.QtWidgets import *  # type: ignore
+from PyQt5.QtCore import *  # type: ignore
+from PyQt5.QtGui import *  # type: ignore
+from PyQt5.QtWidgets import *  # type: ignore
 
 
 class Ui_Risicompare(object):

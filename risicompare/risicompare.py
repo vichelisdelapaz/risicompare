@@ -3,9 +3,9 @@ import sys
 import pathlib
 import logging
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog
-from PySide6.QtCore import QFile, Slot, QDir
-from PySide6.QtGui import QPalette, QColor, QColorConstants, QShortcut, QKeySequence
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog, QShortcut
+from PyQt5.QtCore import QFile, pyqtSlot, QDir
+from PyQt5.QtGui import QPalette, QColor, QColorConstants, QKeySequence
 from risicompare.form import Ui_Risicompare
 from risicompare.html_delegate import HTMLDelegate
 from bs4 import BeautifulSoup
@@ -61,7 +61,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.selection_up.activated.connect(self.moveSelectionUp)
 
 
-    @Slot()
+    @pyqtSlot()
     def moveSelectionUp(self):
         if not self.identifierList.count() or not self.bulkList.count():
             return
@@ -71,7 +71,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.bulkList.setCurrentRow(currentRowBulk - 1)
 
 
-    @Slot()
+    @pyqtSlot()
     def moveSelectionDown(self):
         if not self.identifierList.count() or not self.bulkList.count():
             return
@@ -81,7 +81,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.bulkList.setCurrentRow(currentRowBulk + 1)
 
 
-    @Slot()
+    @pyqtSlot()
     def moveUp(self):
         currentRow = self.identifierList.currentRow()
         currentItem = self.identifierList.takeItem(currentRow)
@@ -89,7 +89,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.identifierList.setCurrentRow(currentRow - 1)
 
 
-    @Slot()
+    @pyqtSlot()
     def moveDown(self):
         currentRow = self.identifierList.currentRow()
         currentItem = self.identifierList.takeItem(currentRow)
@@ -97,7 +97,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.identifierList.setCurrentRow(currentRow + 1)
 
 
-    @Slot()
+    @pyqtSlot()
     def moveLeft(self):
         currentRow = self.identifierList.currentRow()
         currentRowBulk = self.bulkList.currentRow()
@@ -106,7 +106,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.bulkList.setCurrentRow(currentRowBulk + 1)
 
 
-    @Slot()
+    @pyqtSlot()
     def moveRight(self):
         currentRow = self.bulkList.currentRow()
         currentItem = self.bulkList.takeItem(currentRow)
@@ -114,7 +114,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.identifierList.setCurrentRow(currentRow + 1)
 
 
-    @Slot()
+    @pyqtSlot()
     def filePickerSave(self):
         fileName = QFileDialog.getSaveFileName(
                 self,
@@ -125,7 +125,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
         self.output_file = fileName[0]
 
 
-    @Slot(bool)
+    @pyqtSlot(bool)
     def filePickerOpen(self, bulk):
         fileName = QFileDialog.getOpenFileName(
                 self,
@@ -146,7 +146,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
 
 
 
-    @Slot()
+    @pyqtSlot()
     def read_file(self, file, bulk):
         html_list = []
         with open(file, "r") as f:
@@ -193,7 +193,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
                 self.identifierList.addItem(element.decode())
 
 
-    @Slot()
+    @pyqtSlot()
     def produceHTML(self):
         item_count = self.identifierList.count()
         html_risitas = []
@@ -241,7 +241,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
 
 
 
-    @Slot()
+    @pyqtSlot()
     def showImages(self):
         checked = self.showImagesButton.isChecked()
         if checked:
@@ -250,7 +250,7 @@ class Risicompare(QMainWindow, Ui_Risicompare):
             self.show_images = False
 
 
-    @Slot()
+    @pyqtSlot()
     def help(self):
         msgBox = QMessageBox(icon=QMessageBox.Information)
         msgBox.setText('''Scenario 1 : One chapter is missing in the identifier approach, go to left window -> select missing item
@@ -267,7 +267,7 @@ move up/down buttons''')
         msgBox.exec()
 
 
-    @Slot()
+    @pyqtSlot()
     def version(self):
         version = "1.1.1"
         msgBox = QMessageBox(icon=QMessageBox.Information)
@@ -275,7 +275,7 @@ move up/down buttons''')
         msgBox.exec()
 
 
-    @Slot()
+    @pyqtSlot()
     def setParagraphNumber(self):
         i, ok = QInputDialog().getInt(self, "Number of paragraphs window",
                                  "Number of paragraphs to show:", self.paragraphs, 0, 100, 1)
